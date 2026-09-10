@@ -1,0 +1,97 @@
+<!-- ... existing code ... -->
+    <!-- Estilos CSS do Projeto -->
+    <style>
+        :root {
+            --redline-primary: #dc3545;
+            --redline-dark: #0f0f12;
+            --redline-card: #16161c;
+        }
+
+        body {
+            background-color: var(--redline-dark);
+            color: #e1e1e6;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Fontes Temáticas */
+        .font-orbitron { font-family: 'Orbitron', sans-serif; }
+        .font-rajdhani { font-family: 'Rajdhani', sans-serif; }
+
+        /* Cores e Botões */
+        .text-redline { color: var(--redline-primary) !important; }
+        .bg-redline-card { background-color: var(--redline-card) !important; }
+        
+        .btn-redline {
+            background-color: var(--redline-primary);
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-redline:hover {
+            background-color: #bb2d3b;
+            color: white;
+            box-shadow: 0 0 15px rgba(220, 53, 69, 0.5);
+        }
+
+        /* Imagem de Fundo (hero-background) */
+        .hero-background {
+            background: linear-gradient(rgba(15, 15, 18, 0.75), rgba(15, 15, 18, 0.95)), url('images/fundo.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            min-height: 380px;
+            border-bottom: 2px solid rgba(220, 53, 69, 0.3);
+        }
+
+        /* Efeito de Card e Transição */
+        .card-car {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .card-car:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(220, 53, 69, 0.25);
+            border-color: rgba(220, 53, 69, 0.5);
+        }
+
+        /* Controle de Páginas (SPA) */
+        .page-section {
+            display: none;
+        }
+
+        .page-section.active {
+            display: block;
+        }
+
+        /* Badges de Componentes */
+        .badge-component {
+            background-color: rgba(220, 53, 69, 0.15);
+            color: var(--redline-primary);
+            border: 1px solid rgba(220, 53, 69, 0.3);
+            font-family: monospace;
+        }
+    </style>
+
+    <script>
+        // Função definida no <head> para que o atributo onerror dos <img> encontre imediatamente a função
+        function tratarErroCarro(imgElement, nomeCarro, originalSrc) {
+            if (imgElement.dataset.failed) return; // Evita loop infinito
+            imgElement.dataset.failed = "true";
+            
+            // Gera um placeholder elegante usando SVG codificado
+            const texto = encodeURIComponent(nomeCarro || 'Supercarro');
+            imgElement.src = 'https://placehold.co/800x450/111116/dc3545?text=' + texto;
+        }
+    </script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<!-- ... existing code ... -->
